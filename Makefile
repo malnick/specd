@@ -1,7 +1,8 @@
 VERSION := $(shell git describe --tags)
 REVISION := $(shell git rev-parse --short HEAD)
 
-LDFLAGS := -X github.com/mesosphere/dcos-signal/signal.VERSION=$(VERSION) -X github.com/mesosphere/dcos-signal/signal.REVISION=$(REVISION) 
+LDFLAGS := -X github.com/malnick/specd/config.VERSION=$(VERSION) -X github.com/malnick/specd/config.REVISION=$(REVISION) 
+
 FILES := $(shell go list ./... | grep -v vendor)
 
 all: test install
