@@ -3,5 +3,10 @@
     "memory_total": {
       "total": "9000000"
     }
-  }
+  },
+	"files": {
+		"/tmp/foo": {
+			"exists": true
+		}	
+	}
 }
