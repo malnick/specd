@@ -6,35 +6,7 @@
 A lightweight server inspection daemon and HTTP API implemented in Go
 
 ## Overview
-specd is a lightweight configuration management daemon implemented in go. specd’s philosophy is to provide basic configuration resource primitives, a modern HTTP API for configuration management in a small micro service you can deploy on limited linux architectures. 
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Client Architecture](#client-architecture)
-- [Minimal Design](#minimal-design)
-  - Five Resource Primitives
-  - Simple CLI Flags
-- [Declarative Model](#declarative-model)
-  - [state.yaml](#state.yaml)
-  - [Resource Primatives](#resource-primatives)
-- [Reporting](#reporting)
-- [DAG Implementation](#dag-implementation)
-- [HTTP API](#http-api)
-  - Dynamic Configuration Injection
-  - Host Status
-  - Orchestration Endpoint
-
-## Client Architecture
-### Minimal Design
-#### Five Resource Primitives
-- Package
-- File
-- Service
-- Command
-- ...
-
-#### 
+specd is a lightweight system spec reporting daemon implemented in go. specd’s philosophy is to provide basic primitives, a modern HTTP API for reportingg in a small micro service you can deploy on limited linux architectures. 
 
 ### Command Line Interface
 ```
@@ -60,8 +32,6 @@ GLOBAL OPTIONS:
 ```
 #### Commands
 ##### run
-###### once
-Run the service once. This will consume state.yaml, generate a directed acyclic graph (DAG) of resources, and use its resource primitives to provision the host. 
 ###### report
 Report the state of the resources provisioned in the state.yaml.
 ###### api
@@ -77,10 +47,6 @@ Log directly to JSON
 
 ##### -ha --http-api
 Expose a HTTP/S API for dynamic interaction and integration.
-
-
-### Declarative Model
-specd is inspired by [goss](https://github.com/aelsabbahy/goss) and uses it as the backend to check the host state before enforcing state. The state.yaml shares similarities to the goss.yaml, as the resources are directly inherited from goss resources:
 
 #### state.yaml
 Declare complete system state in the state.yaml:
