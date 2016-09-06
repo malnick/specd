@@ -23,7 +23,7 @@ type State struct {
 	Packages map[string]Package `yaml:"packages" json:"packages"`
 	Files    map[string]File    `yaml:"files" json:"files"`
 	Services map[string]Service `yaml:"services" json:"services"`
-	Memory   map[string]Memory  `yaml:"memory" json:"memory"`
+	//	Memory   map[string]Memory  `yaml:"memory" json:"memory"`
 }
 
 func LoadStateYaml(statePath string) (*State, error) {
@@ -93,15 +93,15 @@ func CreateResources(s *State) Resources {
 		}
 	}
 
-	if len(s.Memory) > 0 {
-		for resourceName, _ := range s.Memory {
-			resourceData := s.Memory[resourceName]
-			log.WithFields(log.Fields{
-				"Name": resourceName,
-			}).Debug("Memory")
-			resourceData.SetID(resourceName)
-			r.Resources = append(r.Resources, &resourceData)
-		}
-	}
+	//	if len(s.Memory) > 0 {
+	//		for resourceName, _ := range s.Memory {
+	//			resourceData := s.Memory[resourceName]
+	//			log.WithFields(log.Fields{
+	//				"Name": resourceName,
+	//			}).Debug("Memory")
+	//			resourceData.SetID(resourceName)
+	//			r.Resources = append(r.Resources, &resourceData)
+	//		}
+	//	}
 	return r
 }
