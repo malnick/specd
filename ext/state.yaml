@@ -1,0 +1,22 @@
+---
+os: redhat
+service_provider: systemd
+package_provider: yum
+file_provider: posix
+
+files:
+  /tmp/foobar.txt:
+    exists: true
+    mode: 0644
+
+  /etc/nginx/nginx.conf:
+    exists: true
+    mode: 0644
+
+services:
+  nginx:
+    running: true
+
+packages:
+  nginx:
+    installed: true
